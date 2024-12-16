@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for defining character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage displayed in the browser tab -->
+    <title>Count Down</title>
+    
+    <style>
+        /* Style rules for the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif; /* Set font for the body */
+            background-color: rgb(36, 36, 73); /* Set background color */
+            display: flex; /* Use flexbox layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Set the body to take full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Style for the container holding the countdown */
+        .countdown-container {
+            text-align: center; /* Center text in the container */
+        }
+
+        /* Style for the countdown timer text */
+        .countdown-timer {
+            font-size: 36px; /* Set font size */
+            font-weight: bold; /* Make the font bold */
+            color:  rgb(125, 160, 148); /* Set font color */
+            margin-bottom: 20px; /* Add space below the timer */
+        }
+
+        /* Style for the label text beneath the countdown */
+        .countdown-label {
+            font-size: 18px; /* Set font size */
+            color: #666; /* Set font color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for the countdown -->
+    <div class="countdown-container">
+        <h1>Count Down Starts...</h1>
+        <!-- Element to display the countdown timer -->
+        <div class="countdown-timer" id="countdown"></div>
+        
+        <!-- Label that indicates the countdown is to 2025 -->
+        <div class="countdown-label">until 2025</div>
+    </div>
+
+    <script>
+        // Define the target date and time (January 1st, 2025 at midnight)
+        const targetDate = new Date('2025-01-01T00:00:00');
+
+        // Function to update the countdown
+        function updateCountdown() {
+            // Get the current date and time
+            const currentDate = new Date();
+
+            // Calculate the difference in milliseconds between the target date and current date
+            const timeDifference = targetDate - currentDate;
+
+            // Log the time difference for debugging purposes (optional)
+            console.log(timeDifference);
+
+            // Calculate the number of days remaining
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+            // Calculate the number of hours remaining, after subtracting full days
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            // Calculate the number of minutes remaining, after subtracting full hours
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Calculate the number of seconds remaining, after subtracting full minutes
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Display the countdown in the 'countdown' div in the format 'xd xh xm xs'
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // Call the updateCountdown function every 1000 milliseconds (1 second)
+            setTimeout(updateCountdown, 1000);
+        }
+
+        // Initialize the countdown function
+        updateCountdown();
+    </script>
+</body>
+</html>
