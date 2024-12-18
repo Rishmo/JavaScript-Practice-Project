@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+    background-color: rgb(36, 36, 73);
+}
+
+.container{
+    height: 100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:none;
+}
+.calc{
+    padding:10px;
+    border-radius:20px;
+    background: transparent;
+    border:none;
+    box-shadow: -1px -1px 10px 10px  rgba(125, 160, 148, 0.8);
+}
+
+#input{
+    width:100%;
+    max-width:300px;
+    border-radius:20px;
+    height:80px;
+    border:none;
+    background:transparent;
+    text-align:center;
+    margin:10px;
+    font-size:50px;
+    overflow: hidden;
+    color:#ffffff;
+    cursor:pointer;
+}
+
+
+button{
+    border:none;
+    margin:10px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    cursor:pointer;
+    background:transparent;
+    box-shadow:6px 6px 10px rgba(161, 82, 151, .8),-6px -6px 10px rgba(161, 82, 151, .8); /* - for upper shadow */
+
+}
+.new{
+    box-shadow: inset 6px 6px 10px rgba(161, 82, 151, .5), inset -6px -6px 10px rgba(161, 82, 151, .9); /* inset for inner */
+}
